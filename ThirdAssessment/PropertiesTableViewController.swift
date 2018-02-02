@@ -26,7 +26,11 @@ class PropertiesTableViewController: UIViewController {
 
     
     @objc func addButtonTapped() {
+        guard let vcToNewProperty = storyboard?.instantiateViewController(withIdentifier: "NewPropertyViewController") as? NewPropertyViewController else {return}
         
+//        vcToNewProperty.product2 = selectedProduct
+        
+        navigationController?.pushViewController(vcToNewProperty, animated: true)
     }
 
 

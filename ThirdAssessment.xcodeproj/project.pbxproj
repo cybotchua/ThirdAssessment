@@ -13,6 +13,7 @@
 		00725C0E202407CC00385D58 /* ThirdAssessment.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 00725C0C202407CC00385D58 /* ThirdAssessment.xcdatamodeld */; };
 		00725C10202407CC00385D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00725C0F202407CC00385D58 /* Assets.xcassets */; };
 		00725C13202407CC00385D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00725C11202407CC00385D58 /* LaunchScreen.storyboard */; };
+		00725C1D2024098F00385D58 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00725C1C2024098F00385D58 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		00725C0F202407CC00385D58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00725C12202407CC00385D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00725C14202407CC00385D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00725C1C2024098F00385D58 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				00725C05202407CB00385D58 /* AppDelegate.swift */,
 				00725C07202407CB00385D58 /* ViewController.swift */,
 				00725C09202407CC00385D58 /* Main.storyboard */,
+				00725C1C2024098F00385D58 /* DataController.swift */,
 				00725C0F202407CC00385D58 /* Assets.xcassets */,
 				00725C11202407CC00385D58 /* LaunchScreen.storyboard */,
 				00725C14202407CC00385D58 /* Info.plist */,
@@ -140,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00725C0E202407CC00385D58 /* ThirdAssessment.xcdatamodeld in Sources */,
+				00725C1D2024098F00385D58 /* DataController.swift in Sources */,
 				00725C08202407CB00385D58 /* ViewController.swift in Sources */,
 				00725C06202407CB00385D58 /* AppDelegate.swift in Sources */,
 			);

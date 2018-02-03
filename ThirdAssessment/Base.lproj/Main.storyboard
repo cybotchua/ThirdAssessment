@@ -42,7 +42,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Property Owners" id="xtn-vg-2ez"/>
+                    <navigationItem key="navigationItem" title="Property Owners" id="xtn-vg-2ez">
+                        <barButtonItem key="leftBarButtonItem" title="Color" id="aEn-X9-dcR">
+                            <connections>
+                                <action selector="colorButtonTapped:" destination="BYZ-38-t0r" id="QWj-XN-pdR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ownersTableView" destination="NMs-ad-jfD" id="nFE-l4-q5C"/>
                     </connections>
@@ -115,40 +121,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5H-qn-CRZ">
-                                <rect key="frame" x="109" y="97" width="167" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-un-Xr1">
-                                <rect key="frame" x="109" y="160" width="167" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brU-mi-vjZ">
-                                <rect key="frame" x="109" y="222" width="167" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Ac4-ad-q2U">
+                                <rect key="frame" x="100" y="120" width="176" height="230"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5H-qn-CRZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="176" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aeC-un-Xr1">
+                                        <rect key="frame" x="0.0" y="100" width="176" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="brU-mi-vjZ">
+                                        <rect key="frame" x="0.0" y="200" width="176" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tio-jN-1C3">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Add Property" id="oA3-MA-AMW">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="MEA-qr-L54">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="jsP-nj-ewP" id="Zic-f4-5OJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tio-jN-1C3" firstAttribute="leading" secondItem="sqL-wk-k6i" secondAttribute="leading" id="5MT-1s-pGO"/>
+                            <constraint firstItem="Ac4-ad-q2U" firstAttribute="centerX" secondItem="p3K-kX-ovx" secondAttribute="centerX" id="8Pb-5F-QfI"/>
+                            <constraint firstItem="tio-jN-1C3" firstAttribute="top" secondItem="sqL-wk-k6i" secondAttribute="top" id="Vge-c8-fax"/>
+                            <constraint firstItem="Ac4-ad-q2U" firstAttribute="leading" secondItem="sqL-wk-k6i" secondAttribute="leading" constant="100" id="Wsp-JU-flR"/>
+                            <constraint firstItem="Ac4-ad-q2U" firstAttribute="top" secondItem="sqL-wk-k6i" secondAttribute="top" constant="100" id="XAU-O1-OHp"/>
+                            <constraint firstItem="tio-jN-1C3" firstAttribute="trailing" secondItem="sqL-wk-k6i" secondAttribute="trailing" id="gkB-Xh-AbO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sqL-wk-k6i"/>
                     </view>
                     <connections>
                         <outlet property="locationTextField" destination="brU-mi-vjZ" id="9mI-VM-p8i"/>
                         <outlet property="nameTextField" destination="h5H-qn-CRZ" id="1AR-Ac-wIr"/>
+                        <outlet property="presentedNavigationBar" destination="tio-jN-1C3" id="FB0-Fr-dRb"/>
+                        <outlet property="presentedNavigationItem" destination="oA3-MA-AMW" id="zEY-V0-cpa"/>
                         <outlet property="priceTextField" destination="aeC-un-Xr1" id="wCi-hd-cj6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AmC-CD-UO4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="31.934032983508249"/>
+            <point key="canvasLocation" x="2194" y="32"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6c3-hR-ipc">

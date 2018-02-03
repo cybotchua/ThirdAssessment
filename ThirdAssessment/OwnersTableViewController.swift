@@ -11,7 +11,14 @@ import CoreData
 
 class OwnersTableViewController: UIViewController {
     
+    var chosenColor : UIColor = UIColor.orange
+    
     @IBOutlet weak var ownersTableView: UITableView!
+    
+    @IBAction func colorButtonTapped(_ sender: Any) {
+        showColor()
+    }
+    
     
     var fetchResultController = NSFetchedResultsController<Owner>()
     
@@ -28,6 +35,11 @@ class OwnersTableViewController: UIViewController {
         } else {
             fetchOwners()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.tintColor = chosenColor
     }
     
     func loadOwners() {
@@ -59,6 +71,41 @@ class OwnersTableViewController: UIViewController {
         
     }
     
+    func showColor() {
+        let alert = UIAlertController(title: nil, message: "Choose a default color!", preferredStyle: .alert)
+        
+        let color1 = UIAlertAction(title: "Purple", style: .default) { (action) in
+            self.navigationController?.navigationBar.tintColor = UIColor.purple
+            self.chosenColor = UIColor.purple
+        }
+        
+        let color2 = UIAlertAction(title: "Blue", style: .default) { (action) in
+            self.navigationController?.navigationBar.tintColor = UIColor.blue
+            self.chosenColor = UIColor.blue
+        }
+        
+        let color3 = UIAlertAction(title: "Orange", style: .default) { (action) in
+            self.navigationController?.navigationBar.tintColor = UIColor.orange
+            self.chosenColor = UIColor.orange
+        }
+        
+        let color4 = UIAlertAction(title: "Green", style: .default) { (action) in
+            self.navigationController?.navigationBar.tintColor = UIColor.green
+            self.chosenColor = UIColor.green
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(color1)
+        alert.addAction(color2)
+        alert.addAction(color3)
+        alert.addAction(color4)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
+        
+        }
+    
     
     
 }
@@ -81,6 +128,7 @@ extension OwnersTableViewController : UITableViewDataSource, UITableViewDelegate
         let sb = UIStoryboard(name: "Main", bundle: Bundle.main)
         if let vc = sb.instantiateViewController(withIdentifier: "PropertiesTableViewController") as? PropertiesTableViewController {
             vc.selectedOwner = fetchResultController.object(at: indexPath)
+            vc.chosenColor2 = chosenColor
             
             navigationController?.pushViewController(vc, animated: true)
         }

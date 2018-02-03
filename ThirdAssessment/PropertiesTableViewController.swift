@@ -14,6 +14,7 @@ class PropertiesTableViewController: UIViewController {
     @IBOutlet weak var propertiesTableView: UITableView!
     
     var selectedOwner : Owner?
+    var chosenColor2 = UIColor.orange
     
     var propertyName : String = ""
     var propertyPrice : Int16 = 0
@@ -24,6 +25,7 @@ class PropertiesTableViewController: UIViewController {
         super.viewDidLoad()
         propertiesTableView.dataSource = self
         propertiesTableView.delegate = self
+        navigationController?.navigationBar.tintColor = chosenColor2
         
         navigationItem.title = "Properties"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(addButtonTapped))
@@ -39,8 +41,12 @@ class PropertiesTableViewController: UIViewController {
         guard let vcToNewProperty = storyboard?.instantiateViewController(withIdentifier: "NewPropertyViewController") as? NewPropertyViewController else {return}
         
         vcToNewProperty.selectedOwner2 = selectedOwner
+        vcToNewProperty.chosenColor3 = chosenColor2
+
         
-        navigationController?.pushViewController(vcToNewProperty, animated: true)
+        
+//        navigationController?.pushViewController(vcToNewProperty, animated: true)
+        navigationController?.present(vcToNewProperty, animated: true, completion: nil)
     }
     
     
@@ -69,8 +75,13 @@ extension PropertiesTableViewController : UITableViewDataSource, UITableViewDele
             
             if let properties = selectedOwner?.ownsProperty?.allObjects as? [Property] {
                 vcToNewProperty.selectedProperty = properties[indexPath.row]
-                navigationController?.pushViewController(vcToNewProperty, animated: true)
-
+                vcToNewProperty.chosenColor3 = chosenColor2
+                
+//                vcToNewProperty.modalPresentationStyle = UIModalPresentationStyle.fullScreen
+                
+//                navigationController?.pushViewController(vcToNewProperty, animated: true)
+//                navigationController?.modalPresentationStyle = .fullScreen
+                navigationController?.present(vcToNewProperty, animated: true, completion: nil)
             }
         }
     }
